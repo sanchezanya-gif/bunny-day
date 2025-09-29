@@ -1,0 +1,88 @@
+body {
+margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* Background settings */
+            background-image: url("assets/background.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            /* Fallback color that matches your image */
+            background-color: #d4a5c7;
+
+}
+
+
+/* Import Press Start 2P font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Bunny Day Title */
+.bunny-day-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 4.5rem;
+    font-weight: normal;
+    
+    /* Yellow to pink gradient */
+    background: linear-gradient(45deg, #FFABA0, #FFEAA9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* THIS WORKS LIKE NORMAL CSS! */
+    -webkit-text-stroke: 2px #B27272;
+    
+    /* Your existing positioning and animation... */
+    animation: floatTitle 3s ease-in-out infinite;
+    position: absolute;
+    top: 29%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Show title only when in castle-grounds room */
+body.castle-grounds .bunny-day-title {
+    display: block;
+}
+
+/* Alternative: Use a specific class for the title page */
+.title-page .bunny-day-title {
+    display: block;
+}
+
+@keyframes floatTitle {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-15px);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .bunny-day-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bunny-day-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
