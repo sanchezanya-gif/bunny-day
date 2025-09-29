@@ -405,7 +405,7 @@ function drawHowToPlayPopup() {
     let lineHeight = 25;
     
     text("🏰 Use ARROW KEYS to move around", textX, startY);
-    text("🗝️ Press E to interact with objects (doors, frames, etc.)", textX, startY + lineHeight);
+    text("🗝️ Press E to interact or exit objects (doors, frames, etc.)", textX, startY + lineHeight);
     
     // Close instruction
     textAlign(CENTER);
@@ -756,8 +756,8 @@ if (currentRoom === "chamber") {
     fill(0, 0, 0, 150);
     rect(0, 0, width, height);
 
-    let letterWidth = width * 0.8;
-    let letterHeight = height * 0.7;
+    let letterWidth = width * 1.0;
+    let letterHeight = height * 1.0;
     let letterX = (width - letterWidth) / 2;
     let letterY = (height - letterHeight) / 2;
     image(letterImg, letterX, letterY, letterWidth, letterHeight);
@@ -773,8 +773,8 @@ if (showFrame && currentFrameLetter) {
     fill(0, 0, 0, 150);
     rect(0, 0, width, height);
 
-    let frameWidth = width * 0.8;
-    let frameHeight = height * 0.7;
+    let frameWidth = width * 1.0;
+    let frameHeight = height * 1.0;
     let frameX = (width - frameWidth) / 2;
     let frameY = (height - frameHeight) / 2;
 
@@ -1177,8 +1177,8 @@ function keyPressed() {
             showMessage("Your prince awaits you ❤️");
           }
         } else {
-          console.log("The chamber is locked. You need a KEY! 🔑");
-          showMessage("The chamber is locked. You need a KEY! 🔑");
+          console.log("The chamber is locked. Look for the KEY! 🔑");
+          showMessage("The chamber is locked. Look for the KEY! 🔑");
         }
         return;
       }
