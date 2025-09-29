@@ -7,7 +7,7 @@ let chamberDoor = {x: 540, y: 200, w: 130, h: 200};
 let galleryDoorImg;
 let chamberDoorImg;
 let hasKey = false
-let galleryKey = { x: 60, y: 400, w: 40, h: 40, collected: false }; // Key object (in gallery)
+let galleryKey = { x: 700, y: 530, w: 40, h: 40, collected: false }; // Key object (in gallery)
 let message = "";
 let messageTimer = 0;
 let keySheet;
@@ -482,7 +482,7 @@ if (currentRoom === "castle-wing") {
   image(chamberDoorImg, chamberDoor.x, chamberDoor.y, chamberDoor.w, chamberDoor.h);
 }
 
-if (currentRoom === "gallery") {
+if (currentRoom === "gallery5") {
   if (!galleryKey.collected) {
   //Draw Key
 image(keySprite, galleryKey.x, galleryKey.y, 60, 60); 
@@ -1028,15 +1028,7 @@ function keyPressed() {
         return;
       }
 
-      // Pick up key - FIXED: moved this outside the nested if statements
-      if (!galleryKey.collected &&
-          dist(player.x, player.y, galleryKey.x, galleryKey.y) < 50) { 
-        galleryKey.collected = true;
-        hasKey = true;
-        console.log("You picked up the KEY! 🔑");
-        showMessage("You picked up the KEY! 🔑");
-        return;
-      }
+  
     }
 
     if (currentRoom === "gallery2") {
@@ -1138,6 +1130,16 @@ function keyPressed() {
       if (touchingFrame(frameTasha)) {
         showFrame = true;
         currentFrameLetter = letterTasha.img;
+        return;
+      }
+
+          // Pick up key - FIXED: moved this outside the nested if statements
+      if (!galleryKey.collected &&
+          dist(player.x, player.y, galleryKey.x, galleryKey.y) < 50) { 
+        galleryKey.collected = true;
+        hasKey = true;
+        console.log("You picked up the KEY! 🔑");
+        showMessage("You picked up the KEY! 🔑");
         return;
       }
     }
